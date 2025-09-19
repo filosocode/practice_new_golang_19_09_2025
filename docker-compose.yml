@@ -1,0 +1,22 @@
+version: "3.9"
+services:
+  redis:
+    image: redis:7
+    container_name: enerbit_redis
+    ports:
+      - "6380:6379"
+
+  postgres:
+    image: postgres:15
+    container_name: enerbit_postgres
+    environment:
+      POSTGRES_USER: enerbit
+      POSTGRES_PASSWORD: enerbitpass
+      POSTGRES_DB: enerbitdb
+    ports:
+      - "5433:5432"  
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
