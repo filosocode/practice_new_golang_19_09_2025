@@ -1,16 +1,15 @@
 package main
 
 import (
-	"fmt"
 	"math/rand"
 	"time"
 
-	"github.com/filosocode/enerbit_golang/device"
+	"github.com/filosocode/enerbit_golang/producer"
 )
 
 func main() {
 	rand.Seed(time.Now().UnixNano())
 
-	data := device.SimulateConsumption("device-123")
-	fmt.Printf("Consumo: %+v\n", data)
+	p := producer.NewProducer("127.0.0.1:6381", "consumption_channel", "device-001")
+	p.Start(2 * time.Second)
 }

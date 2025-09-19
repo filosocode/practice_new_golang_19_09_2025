@@ -11,7 +11,7 @@ import (
 type ConsumptionData struct {
 	DeviceID  string
 	Timestamp time.Time
-	value     float64 //kwh
+	Value     float64
 }
 
 // SimulateConsuption genera un dato simulado de consumo
@@ -19,6 +19,6 @@ func SimulateConsumption(DeviceID string) ConsumptionData {
 	return ConsumptionData{
 		DeviceID:  DeviceID,
 		Timestamp: time.Now(),
-		value:     0.5 + rand.Float64()*1.5, //entre 0.5 y 2.0 kwh
+		Value:     0.5 + rand.Float64()*1.5, //entre 0.5 y 2.0 kwh
 	}
 }
